@@ -3,7 +3,7 @@ import AboutImg from "../../assets/headerImg2.jpg";
 import { Typography, Image, Flex, Breadcrumb } from "antd";
 import { Layout } from "../../components";
 
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 
 const breadcrumbItems = [
   {

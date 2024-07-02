@@ -3,7 +3,7 @@ import AboutImg from "../../assets/headerImg2.jpg";
 import { Typography, Image, Flex, Breadcrumb } from "antd";
 import { Layout } from "../../components";
 
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 
 const breadcrumbItems = [
   {
@@ -52,7 +52,7 @@ const ItCoding = () => {
                 <strong>Introductory Coding Courses:</strong>
               </p>
               <a href="https://member.lifeistech-lesson.com/" target="_blank">
-                Learn Web Design – HTML and CSS
+                Learn Web Design - HTML and CSS
               </a>
             </li>
             <li style={{ margin: "32px 0" }}>
