@@ -17,6 +17,7 @@ import HeaderImg1 from "../../assets/headerImg1.jpg";
 import HeaderImg2 from "../../assets/headerImg2.jpg";
 import HeaderImg3 from "../../assets/headerImg3.jpg";
 import HeaderImg4 from "../../assets/headerImg4.jpg";
+import HeaderImg5 from "../../assets/headerImg5.jpg";
 import { ServiceList } from "../../components";
 import { Link } from "react-router-dom";
 
@@ -171,6 +172,7 @@ const GallerySection = () => {
 
 const Carousel = () => {
   const carouselImgs = [
+    { img: HeaderImg5, position: "top" },
     { img: HeaderImg1, position: "center top" },
     { img: HeaderImg2, position: "center" },
     { img: HeaderImg3, position: "top" },

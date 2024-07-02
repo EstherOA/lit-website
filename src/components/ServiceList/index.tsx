@@ -1,5 +1,7 @@
 import { Typography, Card, Row, Col } from "antd";
-import ServiceImg from "../../assets/headerImg3.jpg";
+import ServiceImg1 from "../../assets/headerImg3.jpg";
+import ServiceImg2 from "../../assets/headerImg4.jpg";
+import ServiceImg3 from "../../assets/headerImg2.jpg";
 import { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 const { Title } = Typography;
@@ -9,19 +11,19 @@ const serviceList = [
   {
     title: "IT Coding and Programming",
     description: "Curate lessons in various tech stacks to teach coding",
-    src: ServiceImg,
+    src: ServiceImg1,
     url: "/services/coding",
   },
   {
     title: "IT Boot Camp and Training",
     description: "Organize workshops and training programs",
-    src: ServiceImg,
+    src: ServiceImg2,
     url: "/services/bootcamp",
   },
   {
     title: "IT Capacity Building Programs",
     description: "Initiatives to provide skills",
-    src: ServiceImg,
+    src: ServiceImg3,
     url: "/services/capacity",
   },
 ];
@@ -52,7 +54,14 @@ const ServiceList = ({
               <Card
                 style={{ height: 420 }}
                 hoverable
-                cover={<img alt="example" height={280} src={src} />}
+                cover={
+                  <img
+                    alt="example"
+                    height={280}
+                    src={src}
+                    style={{ objectFit: "cover" }}
+                  />
+                }
               >
                 <Meta title={title} description={description} />
               </Card>
