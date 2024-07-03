@@ -12,7 +12,7 @@ import {
 } from "antd";
 import Icon, { RightOutlined } from "@ant-design/icons";
 import Footer from "../../components/Footer";
-import LogoBlack from "../../assets/logo_black.svg?react";
+import LogoWhite from "../../assets/logo_white.svg?react";
 import HeaderImg1 from "../../assets/headerImg1.jpg";
 import HeaderImg2 from "../../assets/headerImg2.jpg";
 import HeaderImg3 from "../../assets/headerImg3.jpg";
@@ -130,6 +130,7 @@ const AboutSection = () => {
           <Button
             style={{
               padding: "25px 20px",
+              border: "none",
               borderRadius: 0,
               backgroundColor: "#797BE4",
               color: "#fff",
@@ -181,7 +182,7 @@ const Carousel = () => {
 
   const contentStyle: React.CSSProperties = {
     margin: 0,
-    height: "500px",
+    height: "100vh",
     color: "#fff",
     textAlign: "center",
     backgroundRepeat: "no-repeat",
@@ -190,9 +191,14 @@ const Carousel = () => {
   };
 
   return (
-    <CarouselContainer autoplay arrows adaptiveHeight dotPosition="bottom">
+    <CarouselContainer
+      autoplay
+      arrows
+      dotPosition="bottom"
+      style={{ minHeight: "100vh" }}
+    >
       {carouselImgs.map(({ img, position }, i) => (
-        <div key={i}>
+        <div key={i} style={{ minHeight: "100%" }}>
           <div
             style={{
               ...contentStyle,
@@ -206,27 +212,51 @@ const Carousel = () => {
               justify="flex-end"
               style={{ height: "100%", paddingBottom: 56 }}
             >
-              <Button
-                style={{
-                  padding: "25px 20px",
-                  borderRadius: 0,
-                  backgroundColor: "#F1C21C",
-                  color: "#1D1F84",
-                  width: 180,
-                  fontWeight: "600",
-                  textAlign: "center",
-                  outline: "none",
-                }}
-                icon={<RightOutlined />}
-                iconPosition="end"
-              >
-                <Link
-                  target="_blank"
-                  to="https://member.lifeistech-lesson.com/"
+              <Flex>
+                <Button
+                  style={{
+                    padding: "25px 20px",
+                    borderRadius: 0,
+                    backgroundColor: "#F1C21C",
+                    color: "#1D1F84",
+                    width: 180,
+                    fontWeight: "600",
+                    textAlign: "center",
+                    border: "none",
+                  }}
+                  icon={<RightOutlined />}
+                  iconPosition="end"
                 >
-                  Go To Lesson
-                </Link>
-              </Button>
+                  <Link
+                    target="_blank"
+                    to="https://member.lifeistech-lesson.com/"
+                  >
+                    To Lesson
+                  </Link>
+                </Button>
+                <Button
+                  style={{
+                    padding: "25px",
+                    borderRadius: 0,
+                    backgroundColor: "#797BE4",
+                    border: "none",
+                    color: "#F1C21C",
+                    width: 180,
+                    fontWeight: "600",
+                    textAlign: "center",
+                    marginLeft: 72,
+                  }}
+                  icon={<RightOutlined />}
+                  iconPosition="end"
+                >
+                  <Link
+                    target="_blank"
+                    to="https://teacher.lifeistech-lesson.com/"
+                  >
+                    To Teacher Panel
+                  </Link>
+                </Button>
+              </Flex>
               <Text
                 style={{
                   color: "#fff",
@@ -249,7 +279,7 @@ const Home = () => {
   return (
     <Layout style={layoutStyle} hasSider={false}>
       <HeaderContainer style={headerStyle}>
-        <Icon component={() => <LogoBlack height="70px" width="250px" />} />
+        <Icon component={() => <LogoWhite height="70px" width="250px" />} />
         <Menu
           mode="horizontal"
           defaultSelectedKeys={["0"]}

@@ -3,6 +3,7 @@ import { Col, Flex, Row, Image, Typography } from "antd";
 import Icon from "@ant-design/icons";
 import LogoBlack from "../../assets/logo_black.svg?react";
 import Africa from "../../assets/africa.png";
+import { Link } from "react-router-dom";
 
 const { Text } = Typography;
 
@@ -18,7 +19,9 @@ const Footer = () => {
           alignItems: "flex-start",
         }}
       >
-        <Icon component={() => <LogoBlack height="70px" width="250px" />} />
+        <Link to="/">
+          <Icon component={() => <LogoBlack height="70px" width="250px" />} />
+        </Link>
         <Text>info@lifeistechafrica.com</Text>
       </Col>
       <Col span={8} style={{ display: "flex", justifyContent: "center" }}>

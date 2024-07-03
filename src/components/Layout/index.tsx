@@ -32,6 +32,7 @@ const headerStyle: React.CSSProperties = {
   display: "flex",
   width: "100%",
   justifyContent: "space-between",
+  alignItems: "center",
   paddingInline: 48,
   lineHeight: "64px",
   backgroundColor: "#202020",
@@ -57,11 +58,10 @@ const MainLayout = ({ children }: { children: ReactElement }) => {
     <Layout style={layoutStyle}>
       <Header style={headerStyle}>
         <Link to="/">
-          <Icon component={() => <LogoWhite height="70px" width="250px" />} />
+          <Icon component={() => <LogoWhite width="250px" />} />
         </Link>
         <Menu
           mode="horizontal"
-          defaultSelectedKeys={["1"]}
           items={navItems}
           style={{
             backgroundColor: "transparent",
