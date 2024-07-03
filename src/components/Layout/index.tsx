@@ -58,7 +58,15 @@ const MainLayout = ({ children }: { children: ReactElement }) => {
     <Layout style={layoutStyle}>
       <Header style={headerStyle}>
         <Link to="/">
-          <Icon component={() => <LogoWhite width="250px" />} />
+          <Icon
+            component={() => (
+              <LogoWhite
+                height="70px"
+                width="250px"
+                style={{ marginTop: 24 }}
+              />
+            )}
+          />
         </Link>
         <Menu
           mode="horizontal"
@@ -67,6 +75,7 @@ const MainLayout = ({ children }: { children: ReactElement }) => {
             backgroundColor: "transparent",
             height: 50,
             borderBottomWidth: 0,
+            alignItems: "center",
           }}
         />
       </Header>
