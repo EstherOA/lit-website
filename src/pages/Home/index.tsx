@@ -9,8 +9,9 @@ import {
   Flex,
   Row,
   Col,
+  FloatButton,
 } from "antd";
-import Icon, { RightOutlined } from "@ant-design/icons";
+import Icon, { MenuOutlined, RightOutlined } from "@ant-design/icons";
 import Footer from "../../components/Footer";
 import LogoWhite from "../../assets/logo_white.svg?react";
 import HeaderImg1 from "../../assets/headerImg1.jpg";
@@ -20,6 +21,8 @@ import HeaderImg4 from "../../assets/headerImg4.jpg";
 import HeaderImg5 from "../../assets/headerImg5.jpg";
 import { ServiceList } from "../../components";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import "./style.css";
 
 const { Header: HeaderContainer, Footer: FooterContainer, Content } = Layout;
 const { Text, Title, Paragraph } = Typography;
@@ -63,19 +66,6 @@ const galleryItems = [
     span: 7,
   },
 ];
-
-const headerStyle: React.CSSProperties = {
-  top: 20,
-  height: 70,
-  display: "flex",
-  position: "absolute",
-  zIndex: 100,
-  width: "100%",
-  justifyContent: "space-between",
-  paddingInline: 48,
-  lineHeight: "64px",
-  backgroundColor: "transparent",
-};
 
 const contentStyle: React.CSSProperties = {
   minHeight: 120,
@@ -265,7 +255,7 @@ const Carousel = () => {
                   marginTop: 16,
                 }}
               >
-                Experience the fun based learning approach to coding!
+                Experience the fun-based learning approach to coding!
               </Text>
             </Flex>
           </div>
@@ -276,19 +266,62 @@ const Carousel = () => {
 };
 
 const Home = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [showMobileNav, setShowMobileNav] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  const toggleMobileNav = () => {
+    setShowMobileNav((prev) => {
+      return !prev;
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <Layout style={layoutStyle} hasSider={false}>
-      <HeaderContainer style={headerStyle}>
-        <Icon component={() => <LogoWhite height="70px" width="250px" />} />
+      <FloatButton.BackTop />
+      <HeaderContainer className={`navbar ${scrolled ? "scrolled" : ""}`}>
+        <div className="navbar-row">
+          <Icon component={() => <LogoWhite height="70px" width="250px" />} />
+          <div className="desktop-menu">
+            <Menu
+              mode={"horizontal"}
+              defaultSelectedKeys={["0"]}
+              items={navItems}
+              style={{
+                backgroundColor: "transparent",
+                height: 50,
+                borderBottomWidth: 0,
+                marginBottom: 20,
+              }}
+            />
+          </div>
+          <div className="mobile-menu">
+            <Button
+              type="primary"
+              icon={<MenuOutlined />}
+              onClick={toggleMobileNav}
+            />
+          </div>
+        </div>
         <Menu
-          mode="horizontal"
+          mode={"vertical"}
           defaultSelectedKeys={["0"]}
           items={navItems}
-          style={{
-            backgroundColor: "transparent",
-            height: 50,
-            borderBottomWidth: 0,
-          }}
+          className="mobile-nav"
         />
       </HeaderContainer>
       <Content style={contentStyle}>
